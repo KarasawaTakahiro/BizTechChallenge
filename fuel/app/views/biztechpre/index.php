@@ -7,6 +7,28 @@
     <body>
         <h1><?php echo $title; ?></h1>
         <?php var_dump($data); ?>
+
+        <div>
+        </div>
+
+        <form action="index_post" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                    <td>Mail:</td>
+                    <td><input type="text" name="mail"></td>
+                <tr>
+                    <td>Comment:</td>
+                    <td><textarea name="comment" rows="5" cols="40"></textarea></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="SEND!"></td>
+                </tr>
+            </table>
+        </form>
+
     </body>
 </html>
 

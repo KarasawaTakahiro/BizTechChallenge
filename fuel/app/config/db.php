@@ -18,7 +18,8 @@ return array(
             'persistent' => FALSE,
         ),
         'charset' => 'utf8',
-        'caching' => false
+        'caching' => false,
+        'table_prefix' => ''
     ),
 
 );
