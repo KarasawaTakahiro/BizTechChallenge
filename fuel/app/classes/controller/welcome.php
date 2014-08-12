@@ -30,7 +30,7 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('welcome/index'));
+		return Response::forge(View::forge('biztech/index'));
 	}
 
 	/**
@@ -42,7 +42,7 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_hello()
 	{
-		return Response::forge(Presenter::forge('welcome/hello'));
+		return Response::forge(Presenter::forge('biztech/hello'));
 	}
 
 	/**
@@ -53,6 +53,6 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_404()
 	{
-		return Response::forge(Presenter::forge('welcome/404'), 404);
+		return Response::forge(Presenter::forge('biztech/404'), 404);
 	}
 }
