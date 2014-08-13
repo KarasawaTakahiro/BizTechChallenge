@@ -1,22 +1,6 @@
 <?php 
 use \Model\Biztechpre;
 
-$lists = Biztechpre::get_post_data_descending_order();
-$contents = '';
-$c = 0;
-foreach($lists as $item){
-        $contents .= "<hr>
-                <div>{$item['name']}</div>
-                <div>{$item['mail_address']}</div>
-                <div>{$item['post_time']}</div>
-                <div>{$item['comment']}</div>
-                ";
-        $c ++;
-        if($c > 10){
-                break;
-        }
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -28,7 +12,7 @@ foreach($lists as $item){
         <h1><?php echo $title; ?></h1>
 
         <div>
-            <?php echo $contents; ?>
+            <?php echo Biztechpre::get_contents_page($page); ?>
         </div>
 
         <form action="" method="post">

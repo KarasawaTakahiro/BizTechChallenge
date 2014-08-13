@@ -1,6 +1,7 @@
 # temp files from editors
 *~
 *.bak
+*.swp
 .DS_Store
 .buildpath
 .project
