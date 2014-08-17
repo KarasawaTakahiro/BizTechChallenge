@@ -6,7 +6,7 @@ use \Model\Biztechpre;
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title><?php echo $title; ?>
+        <title><?php echo $title; ?></title>
     </head>
     <body>
         <h1><?php echo $title; ?></h1>
@@ -16,7 +16,17 @@ use \Model\Biztechpre;
         </div>
 
         <hr>
-        <form action="" method="post">
+
+        <div id="page_link">
+            <?php echo Biztechpre::get_page_link($page); ?>
+        </div>
+
+        <hr>
+
+        <?php 
+            echo Form::open('biztechpre/comment');
+        ?>
+            
             <table>
                 <tr>
                     <td>Name:</td>
@@ -32,6 +42,7 @@ use \Model\Biztechpre;
                     <td><input type="submit" value="SEND!"></td>
                 </tr>
             </table>
+            <input type="hidden" name="page" value="<?php echo $page; ?>">
         </form>
     </body>
 </html>

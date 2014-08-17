@@ -11,13 +11,7 @@ use \Model\Biztechpre;
     <body>
         <h1><?php echo $title; ?></h1>
 
-        <?php echo Html::anchor('bbs/page/1', 'ENTER'); ?>
-
-        <!--
-        <div>
-        <?php echo Biztechpre::get_page_link($page); ?>
-        </div>
-        -->
+        <?php echo Html::anchor('bbs/1', 'ENTER'); ?>
 
     </body>
 </html>
