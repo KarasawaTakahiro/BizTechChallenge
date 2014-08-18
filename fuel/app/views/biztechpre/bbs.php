@@ -7,6 +7,7 @@ use \Model\Biztechpre;
     <head>
         <meta charset="utf-8">
         <?php 
+        echo Asset::css('bbs.css');
         echo Asset::js('modules.js');
         ?>
         <title><?php echo $title; ?></title>
