@@ -24,19 +24,21 @@ class Biztechpre extends \Model
             $c = 0;
             foreach($lists as $item){
                 if($page*ITEM_NUM <= $c && $c < ($page+1)*ITEM_NUM){
+                    $comment = nl2br($item['comment']);     // \n\r to <br />
+                    $mail = \Html::mail_to($item['mail_address'], $item['mail_address']);  // add mailto
                     $contents .= "
                     <div class=\"row\">
                         <hr>
-                        <div class=\"no\">{$item['id']}</div>
-                        <div class=\"name\">{$item['name']}</div>
-                        <div class=\"mail_address\">{$item['mail_address']}</div>
-                        <div class=\"post_time\">{$item['post_time']}</div>
-                        <div class=\"comment\">{$item['comment']}</div>
+                        <span class=\"no\">No:{$item['id']}</span>
+                        <span class=\"post_time\">at: {$item['post_time']}</span>
+                        <p class=\"comment\">$comment</p>
+                        <span class=\"name\">{$item['name']}</span>
+                        <span class=\"mail_address\">[$mail]</span>
                     </div>
                         ";
-                    $num ++;
+                    $num ++;  // item num
                 }
-                if(ITEM_NUM <= $num)break;
+                if(ITEM_NUM <= $num)break;  // finish when 10 items are found
                 $c ++;
             }
             return $contents;
