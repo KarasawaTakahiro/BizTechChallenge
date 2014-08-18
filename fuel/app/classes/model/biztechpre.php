@@ -11,6 +11,7 @@ class Biztechpre extends \Model
                 $query = \DB::select('id', 'name', 'mail_address', 'comment', 'post_time')
                         ->from('posting')
                         ->order_by('post_time', 'dec')
+                        ->order_by('id', 'dec')
                         ->execute();
                 return $query->as_array();
         }
