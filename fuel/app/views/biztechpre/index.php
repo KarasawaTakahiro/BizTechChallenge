@@ -14,13 +14,11 @@
             <table>
                 <tr>
                     <td id="str_name">Name:</td>
-                    <td><input type="text" name="name" id="input_name"></td>
-                    <td><div id="alert_name"></div></td>
+                    <td><?php echo Form::input($field='name', $value=$name, array('id'=>'input_name')); ?></td>
                 </tr>
                 <tr>
                     <td id="str_mail">Mail:</td>
-                    <td><input type="text" name="mail" id="input_mail"></td>
-                    <td><div id="alert_mail"></div></td>
+                    <td><?php echo  Form::input('mail', $mail, array('id'=>'input_mail')); ?></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="LOGIN!" id="input_submit"></td>

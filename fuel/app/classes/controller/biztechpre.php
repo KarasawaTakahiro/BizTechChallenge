@@ -6,17 +6,19 @@ class Controller_Biztechpre extends Controller
     public function action_index()
     {
         $data['title'] = 'BizTech Pre';
+        $data = array('title' => 'BizTech Pre',
+                      'name' => Cookie::get('name'),
+                      'mail' => Cookie::get('mail'),
+                     );
         return Response::forge(View::forge('biztechpre/index', $data));
     }
 
     public function action_bbs($page=1)
     {
-        $name = Cookie::get('name');
-        $mail = Cookie::get('mail');
         $data = array('title' => 'Biztech Pre BBS',
                       'page'  => $page,
-                      'name'  => $name,
-                      'mail'  => $mail,
+                      'name' => Cookie::get('name'),
+                      'mail' => Cookie::get('mail'),
                       );
         if($page <= 0){
             $page = 1;
@@ -33,6 +35,8 @@ class Controller_Biztechpre extends Controller
                 ->columns(array('name', 'mail_address', 'comment', 'post_time'))
                 ->values(array($post['name'], $post['mail'], $post['comment'], date('Y-m-d H:i:s')))
                 ->execute();
+            Cookie::set('name', $post['name']);
+            Cookie::set('mail', $post['mail']);
             Response::redirect("bbs/{$post['page']}");
         }
         Response::redirect('bbs/1');
