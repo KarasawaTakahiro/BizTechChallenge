@@ -32,17 +32,16 @@ use \Model\Biztechpre;
             
             <table>
                 <tr>
-                    <td>Name:</td>
-                    <td><input type="text" name="name" id="input_name"></td>
-                    <td><div id="alart_name"></div></td>
+                    <td id="str_name">Name:</td>
+                    <td><?php echo Form::input($field='name', $value=$name, array('id'=>'input_name')); ?></td>
                 </tr>
-                    <td>Mail:</td>
-                    <td><input type="text" name="mail" id="input_mail"></td>
-                    <td><div id="alart_mail"></div></td>
                 <tr>
-                    <td>Comment:</td>
+                    <td id="str_mail">Mail:</td>
+                    <td><?php echo Form::input($field='mail', $value=$mail, array('id'=>'input_mail')); ?></td>
+                </tr>
+                <tr>
+                     <td id="str_comment">Comment:</td>
                     <td><textarea name="comment" rows="5" cols="40" id="textarea_comment"></textarea></td>
-                    <td><div id="alart_comment"></div></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="SEND!" id="input_submit"></td>

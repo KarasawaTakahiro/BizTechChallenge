@@ -11,8 +11,13 @@ class Controller_Biztechpre extends Controller
 
     public function action_bbs($page=1)
     {
+        $name = Cookie::get('name');
+        $mail = Cookie::get('mail');
         $data = array('title' => 'Biztech Pre BBS',
-                      'page'  => $page);
+                      'page'  => $page,
+                      'name'  => $name,
+                      'mail'  => $mail,
+                      );
         if($page <= 0){
             $page = 1;
         }
@@ -32,6 +37,16 @@ class Controller_Biztechpre extends Controller
         }
         Response::redirect('bbs/1');
     }
+
+    public function post_login(){
+        $post = Input::post();
+        if(!empty($post)){
+            Cookie::set('name', $post['name']);
+            Cookie::set('mail', $post['mail']);
+        }
+        Response::redirect('bbs/1');
+    }
+
     public function action_404()
     {
         return Response::forge(Presenter::forge('biztechpre/404'), 404);
