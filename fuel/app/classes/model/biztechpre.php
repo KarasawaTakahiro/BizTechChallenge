@@ -19,6 +19,7 @@ class Biztechpre extends \Model
             $page--;  // page num to index
             $lists = Biztechpre::get_post_data_descending_order();
             $contents = '';
+            $num = 0;
             $c = 0;
             foreach($lists as $item){
                 if($page*ITEM_NUM <= $c && $c < ($page+1)*ITEM_NUM){
@@ -32,7 +33,9 @@ class Biztechpre extends \Model
                         <div class=\"comment\">{$item['comment']}</div>
                     </div>
                         ";
+                    $num ++;
                 }
+                if(ITEM_NUM <= $num)break;
                 $c ++;
             }
             return $contents;
@@ -41,7 +44,7 @@ class Biztechpre extends \Model
         public static function get_page_link($pageNum)
         {
             $lists = Biztechpre::get_post_data_descending_order();
-            $contents = '';
+            $contents = \Html::anchor('', 'Top').' ';
 
             for($link=1; $link<=ceil(count($lists)/ITEM_NUM); $link++){
                 if($link == $pageNum){
